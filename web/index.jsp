@@ -51,5 +51,6 @@ and open the template in the editor.
         <h2 id="answer">
             <c:out value="${answer}"></c:out>
         </h2>
+    <center><img src="areas.png"/></center>
     </body>
 </html>
