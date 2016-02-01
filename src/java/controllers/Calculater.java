@@ -13,7 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.CircleCalc;
 import models.RectangleCalc;
+import models.TriangleCalc;
 
 /**
  *
@@ -38,22 +40,28 @@ public class Calculater extends HttpServlet {
            String width = request.getParameter("width");
            String length = request.getParameter("length");
            String radius = request.getParameter("radius");
-           String a = request.getParameter("a");
-           String b= request.getParameter("b");
-           String c = request.getParameter("c");
+           String base = request.getParameter("base");
+           String height = request.getParameter("height");
            String calcType = request.getParameter("calcType");
-           
+           String answer;
+           System.out.println(calcType);
             switch (calcType) {
                 case "rectangle":
+                    System.out.println("hi");
                     RectangleCalc rc = new RectangleCalc(width,length);
-                    request.setAttribute(width,rc.calculateArea());
+                    request.setAttribute("answer",rc.CalculateArea());
                     break;
                 case "circle":
+                    CircleCalc cc = new CircleCalc(radius);
+                    request.setAttribute("answer",cc.CalculateArea());
                     break;
+                case "triangle":
+                    TriangleCalc tc = new TriangleCalc(base,height);
+                    request.setAttribute("answer", tc.CalculateArea());
                 default:
                     break;
             }
-           RequestDispatcher rd = request.getRequestDispatcher("Result.jsp");
+           RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         }
     }

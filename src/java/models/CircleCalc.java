@@ -26,5 +26,7 @@ public class CircleCalc {
         this.radius = radius;
     }
     
-    public double CalcArea
+    public double CalculateArea(){
+        return PI * Double.parseDouble(radius) * Double.parseDouble(radius);
+    }
 }

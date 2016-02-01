@@ -34,10 +34,12 @@ public class RectangleCalc {
         this.length = length;
     }
     
-    public Double calculateArea(){
+    public String CalculateArea(){
+        System.out.println("i got here");
         double width2 = Double.parseDouble(width);
         double length2 = Double.parseDouble(length);
-        
-        return width2*length2;
+        double answer = width2*length2;
+        System.out.println(answer);
+        return String.valueOf(answer);
     }
 }
