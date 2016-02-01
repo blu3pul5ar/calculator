@@ -4,6 +4,7 @@
     Author     : Nicholas
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -48,16 +49,7 @@ and open the template in the editor.
         </form>
         </div>
         <h2 id="answer">
-            <% 
-                Object msg = request.getAttribute("answer");
-                if(msg != null){
-                    
-                    out.println("The answer is: " + msg);
-                }
-                else{
-                    out.println();
-                }
-            %>
+            <c:out value="${answer}"></c:out>
         </h2>
     </body>
 </html>
